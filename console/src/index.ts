@@ -9,25 +9,25 @@ export default definePlugin({
   components: [],
   routes: [
     {
-      parentName: "Root",
+      parentName: "ToolsRoot",
       route: {
         path: "/migrate",
+        name: "Migrate",
+        meta: {
+          title: "迁移",
+          searchable: true,
+          permissions: ["plugin:PluginMigrate:migrate"],
+          menu: {
+            name: "迁移",
+            group: "tool",
+            icon: markRaw(MdiCogTransferOutline),
+            priority: 0,
+          },
+        },
         children: [
           {
             path: "",
-            name: "Migrate",
             component: MigrateView,
-            meta: {
-              title: "迁移",
-              searchable: true,
-              permissions: ["plugin:PluginMigrate:migrate"],
-              menu: {
-                name: "迁移",
-                group: "tool",
-                icon: markRaw(MdiCogTransferOutline),
-                priority: 0,
-              },
-            },
           },
         ],
       },

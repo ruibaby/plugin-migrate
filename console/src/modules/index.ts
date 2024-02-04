@@ -1,6 +1,7 @@
 import type { Provider } from "@/types";
 import { defineAsyncComponent } from "vue";
 import wordpress from "@/assets/wordpress.svg";
+import ghostLogo from "@/assets/ghost.png";
 import rss from "@/assets/rss.svg";
 import atom from "@/assets/atom.svg";
 
@@ -27,6 +28,14 @@ export const providerItems: Provider[] = [
     options: {
       attachmentFolderPath: "migrate-from-wp",
     },
+  },
+  {
+    name: "Ghost 5.x",
+    icon: ghostLogo,
+    description: "Ghost 5.x 数据迁移",
+    importComponent: defineAsyncComponent(
+      () => import("./ghost/GhostMigrateDataParser.vue")
+    ),
   },
   {
     name: "RSS",
